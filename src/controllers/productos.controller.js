@@ -1,7 +1,6 @@
 import { Producto } from '../models/Producto.js'
 
 //Listar todos los productos
-
 export const listarProductos = async (req, res) => {
     try {
         const productos = await Producto.findAll()
@@ -12,7 +11,6 @@ export const listarProductos = async (req, res) => {
 }
 
 // Listar un producto por ID
-
 export const listarProducto = async (req, res) => {
     try {
         const { id } = req.params
@@ -33,17 +31,20 @@ export const crearProducto = async (req, res) => {
         res.status(400).json({ message: error.message })
     }
 }
+
+// Actualiza un producto
 export const actualizarProducto = async (req, res) => {
     try {
         const { id } = req.params
         const producto = await Producto.findByPk(id)
-        producto.set(req.body)
-        producto.save()
+        producto.set(req.body).save()
         res.status(202).json({ message: 'Producto Actualizado Correctamente', producto })
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
 }
+
+// Borra un producto por ID
 export const borrarProducto = async (req, res) => {
     try {
         const { id } = req.params
