@@ -17,7 +17,6 @@ export const listarProducto = async (req, res) => {
     try {
         const { id } = req.params
         const producto = await Producto.findByPk(id)
-        console.log(producto)
         producto === null ? res.json({ message: 'No hay productos para listar' }) : res.status(200).json(producto)
     } catch (error) {
         res.status(400).json({ message: error.message })
