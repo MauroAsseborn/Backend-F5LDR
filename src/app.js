@@ -5,7 +5,7 @@ import { config } from 'dotenv'
 config()
 
 import rutaProductos from './routes/productos.routes.js'
-import { Producto } from './models/Producto.js'
+// import { Producto } from './models/Producto.js'
 
 const app = express()
 
