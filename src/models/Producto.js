@@ -31,4 +31,4 @@ export const Producto = conexion.define(
     }
 )
 
-// Producto.sync()
+Producto.sync()
