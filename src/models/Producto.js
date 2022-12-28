@@ -13,6 +13,10 @@ export const Producto = conexion.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        medida: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
+        },
         valor: {
             type: DataTypes.INTEGER,
             defaultValue: 0,
@@ -30,5 +34,8 @@ export const Producto = conexion.define(
         timestamps: true,
     }
 )
+
+// TODO: crear relacion marca_id
+// TODO: crear relacion categoria_id
 
 // Producto.sync()

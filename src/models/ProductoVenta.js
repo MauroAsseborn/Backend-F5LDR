@@ -1,34 +1,23 @@
 import { DataTypes } from 'sequelize'
-
 import { conexion } from '../database.js'
-import { Producto } from '../models/Producto.js'
 
-export const Venta = conexion.define(
-    'Venta',
+export const ProductoVenta = conexion.define(
+    'ProductoVenta',
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGE,
             autoIncrement: true,
             primaryKey: true,
         },
-        monto: {
+        producto_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: { model: 'Producto', key: 'id' },
         },
     },
     {
         timestamps: true,
     }
 )
-
-Venta.hasMany(Producto, {
-    foreignKey: 'producto_id',
-    sourceKey: 'id',
-})
-
-Producto.belongsTo(Venta, {
-    foreignKey: 'v ',
-    targetKey: 'id',
-})
 
 // Venta.sync()

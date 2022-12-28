@@ -1,7 +1,7 @@
 import { Producto } from '../models/Producto.js'
 
 //Listar todos los productos
-export const listarProductos = async (req, res) => {
+export const listarProductos = async (_req, res) => {
     try {
         const productos = await Producto.findAll()
         productos.length ? res.status(200).json(productos) : res.json({ message: 'No hay productos para listar' })
